@@ -3,141 +3,220 @@
 <head>
     <meta charset="UTF-8">
     <title>Journal en Ligne</title>
+
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #f4f4f4;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background-color: #eceff1;
+            color: #222;
         }
 
+        /* HEADER */
         header {
-            background-color: #222;
+            background-color: #1a1a1a;
             color: white;
-            padding: 15px;
-            text-align: center;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
+        header h1 {
+            margin: 0;
+            font-size: 22px;
+        }
+
+        /* Bouton menu */
+        .menu-btn {
+            font-size: 22px;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* LAYOUT */
         .container {
             display: flex;
-            min-height: calc(100vh - 70px);
+            min-height: calc(100vh - 60px);
         }
 
-        /* Menu latéral */
+        /* MENU LATERAL */
         .sidebar {
-            width: 250px;
-            background-color: #333;
+            width: 260px;
+            background-color: #263238;
             color: white;
             padding: 20px;
+            position: fixed;
+            top: 60px;
+            left: -260px;
+            height: 100%;
+            transition: left 0.3s ease;
+            box-shadow: 4px 0 10px rgba(0,0,0,0.3);
+        }
+
+        .sidebar.active {
+            left: 0;
         }
 
         .sidebar h2 {
+            margin-top: 0;
             font-size: 18px;
-            margin-bottom: 15px;
+            border-bottom: 1px solid #455a64;
+            padding-bottom: 10px;
         }
 
         .sidebar button {
             width: 100%;
             padding: 10px;
-            margin-bottom: 10px;
-            background-color: #444;
-            color: white;
+            margin-top: 10px;
+            background-color: #37474f;
             border: none;
-            cursor: pointer;
+            color: white;
             text-align: left;
+            cursor: pointer;
         }
 
         .sidebar button:hover {
-            background-color: #555;
+            background-color: #455a64;
         }
 
-        /* Contenu principal */
-        .content {
+        /* CONTENU */
+        main {
             flex: 1;
-            padding: 20px;
-            background-color: white;
+            padding: 25px;
+            margin-left: 0;
         }
 
         .article {
             display: none;
+            background-color: white;
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .article img {
+            width: 100%;
+            max-height: 250px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 15px;
         }
 
         .article h2 {
             margin-top: 0;
         }
 
-        .home-news ul {
-            padding-left: 20px;
+        /* ACTUS ACCUEIL */
+        .news-block {
+            margin-bottom: 25px;
+        }
+
+        .news-block h3 {
+            margin-bottom: 8px;
         }
 
         .disclaimer {
             margin-top: 30px;
             font-size: 12px;
-            color: #666;
+            color: #555;
         }
     </style>
 </head>
+
 <body>
 
 <header>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
     <h1>Le Journal en Ligne</h1>
-    <p>Actualités • Politique • Monde</p>
 </header>
 
 <div class="container">
 
-    <!-- Menu latéral -->
-    <aside class="sidebar">
-        <h2>Articles</h2>
+    <!-- MENU -->
+    <aside class="sidebar" id="sidebar">
+        <h2>Navigation</h2>
         <button onclick="showArticle('home')">Accueil</button>
         <button onclick="showArticle('article1')">Trump attaque Cuba</button>
         <button onclick="showArticle('article2')">Macron capturé</button>
     </aside>
 
-    <!-- Contenu -->
-    <main class="content">
+    <!-- CONTENU -->
+    <main>
 
-        <!-- Accueil -->
+        <!-- ACCUEIL -->
         <div id="home" class="article" style="display:block;">
-            <h2>Dernières actualités</h2>
-            <div class="home-news">
-                <ul>
-                    <li>Tensions internationales en hausse</li>
-                    <li>Réunion d’urgence de l’ONU annoncée</li>
-                    <li>Les marchés mondiaux réagissent</li>
-                </ul>
+            <h2>À la une</h2>
+
+            <div class="news-block">
+                <img src="LIEN_IMAGE_A_REMPLACER">
+                <h3>Tensions géopolitiques persistantes</h3>
+                <p>
+                    Les relations internationales restent marquées par des tensions
+                    entre grandes puissances, notamment autour des conflits armés,
+                    des sanctions économiques et des alliances militaires.
+                </p>
+            </div>
+
+            <div class="news-block">
+                <img src="LIEN_IMAGE_A_REMPLACER">
+                <h3>Climat : des records de température</h3>
+                <p>
+                    Les scientifiques observent une augmentation continue des
+                    températures mondiales, avec des conséquences visibles sur
+                    les événements météorologiques extrêmes.
+                </p>
+            </div>
+
+            <div class="news-block">
+                <img src="LIEN_IMAGE_A_REMPLACER">
+                <h3>Économie mondiale sous pression</h3>
+                <p>
+                    L’inflation, les taux d’intérêt élevés et les tensions commerciales
+                    continuent d’influencer les marchés financiers et le pouvoir
+                    d’achat des populations.
+                </p>
             </div>
         </div>
 
-        <!-- Article 1 -->
+        <!-- ARTICLE 1 -->
         <div id="article1" class="article">
+            <img src="LIEN_IMAGE_A_REMPLACER">
             <h2>Trump attaque Cuba</h2>
             <p>
-                Dans un scénario fictif, l’ancien président américain Donald Trump
-                aurait ordonné une opération militaire contre Cuba, provoquant une
-                réaction immédiate de la communauté internationale.
+                Dans ce scénario fictif, Donald Trump aurait lancé une action militaire
+                contre Cuba, provoquant une onde de choc diplomatique à l’échelle
+                mondiale.
             </p>
             <p>
-                Les dirigeants mondiaux appellent au calme tandis que des négociations
-                diplomatiques seraient en cours.
+                Les organisations internationales tenteraient d’éviter une escalade
+                tandis que plusieurs États appelleraient à une résolution pacifique.
             </p>
         </div>
 
-        <!-- Article 2 -->
+        <!-- ARTICLE 2 -->
         <div id="article2" class="article">
+            <img src="LIEN_IMAGE_A_REMPLACER">
             <h2>Trump capture Emmanuel Macron</h2>
             <p>
-                Dans cette fiction politique, Emmanuel Macron aurait été capturé
-                lors d’un sommet international sous haute tension.
+                Cette fiction politique met en scène la capture du président français
+                lors d’un événement international sensible.
             </p>
             <p>
-                La France et ses alliés demanderaient sa libération immédiate,
-                tandis que la situation resterait extrêmement instable.
+                La situation entraînerait une mobilisation diplomatique massive
+                de la part des alliés européens.
             </p>
         </div>
 
         <div class="disclaimer">
-            ⚠️ Tous les articles présents sur ce site sont entièrement fictifs et ne
-            représentent pas des faits réels.
+            ⚠️ Les articles politiques nommés sont fictifs.  
+            Les informations de la page d’accueil sont basées sur des faits réels généraux.
         </div>
 
     </main>
@@ -145,13 +224,16 @@
 </div>
 
 <script>
-    function showArticle(id) {
-        const articles = document.querySelectorAll('.article');
-        articles.forEach(article => {
-            article.style.display = 'none';
-        });
+    function toggleMenu() {
+        document.getElementById("sidebar").classList.toggle("active");
+    }
 
-        document.getElementById(id).style.display = 'block';
+    function showArticle(id) {
+        const articles = document.querySelectorAll(".article");
+        articles.forEach(a => a.style.display = "none");
+
+        document.getElementById(id).style.display = "block";
+        document.getElementById("sidebar").classList.remove("active");
     }
 </script>
 
