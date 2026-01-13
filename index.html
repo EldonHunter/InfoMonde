@@ -1,1 +1,159 @@
--
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Journal en Ligne</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #222;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            min-height: calc(100vh - 70px);
+        }
+
+        /* Menu latéral */
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+        }
+
+        .sidebar h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .sidebar button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #444;
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+        }
+
+        .sidebar button:hover {
+            background-color: #555;
+        }
+
+        /* Contenu principal */
+        .content {
+            flex: 1;
+            padding: 20px;
+            background-color: white;
+        }
+
+        .article {
+            display: none;
+        }
+
+        .article h2 {
+            margin-top: 0;
+        }
+
+        .home-news ul {
+            padding-left: 20px;
+        }
+
+        .disclaimer {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Le Journal en Ligne</h1>
+    <p>Actualités • Politique • Monde</p>
+</header>
+
+<div class="container">
+
+    <!-- Menu latéral -->
+    <aside class="sidebar">
+        <h2>Articles</h2>
+        <button onclick="showArticle('home')">Accueil</button>
+        <button onclick="showArticle('article1')">Trump attaque Cuba</button>
+        <button onclick="showArticle('article2')">Macron capturé</button>
+    </aside>
+
+    <!-- Contenu -->
+    <main class="content">
+
+        <!-- Accueil -->
+        <div id="home" class="article" style="display:block;">
+            <h2>Dernières actualités</h2>
+            <div class="home-news">
+                <ul>
+                    <li>Tensions internationales en hausse</li>
+                    <li>Réunion d’urgence de l’ONU annoncée</li>
+                    <li>Les marchés mondiaux réagissent</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Article 1 -->
+        <div id="article1" class="article">
+            <h2>Trump attaque Cuba</h2>
+            <p>
+                Dans un scénario fictif, l’ancien président américain Donald Trump
+                aurait ordonné une opération militaire contre Cuba, provoquant une
+                réaction immédiate de la communauté internationale.
+            </p>
+            <p>
+                Les dirigeants mondiaux appellent au calme tandis que des négociations
+                diplomatiques seraient en cours.
+            </p>
+        </div>
+
+        <!-- Article 2 -->
+        <div id="article2" class="article">
+            <h2>Trump capture Emmanuel Macron</h2>
+            <p>
+                Dans cette fiction politique, Emmanuel Macron aurait été capturé
+                lors d’un sommet international sous haute tension.
+            </p>
+            <p>
+                La France et ses alliés demanderaient sa libération immédiate,
+                tandis que la situation resterait extrêmement instable.
+            </p>
+        </div>
+
+        <div class="disclaimer">
+            ⚠️ Tous les articles présents sur ce site sont entièrement fictifs et ne
+            représentent pas des faits réels.
+        </div>
+
+    </main>
+
+</div>
+
+<script>
+    function showArticle(id) {
+        const articles = document.querySelectorAll('.article');
+        articles.forEach(article => {
+            article.style.display = 'none';
+        });
+
+        document.getElementById(id).style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
