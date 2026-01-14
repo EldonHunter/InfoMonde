@@ -54,7 +54,7 @@ header h1 {
 }
 
 /* =====================
-   SIDEBAR (INCHANGÉE)
+   SIDEBAR (inchangée)
 ===================== */
 .sidebar {
   position: fixed;
@@ -103,12 +103,12 @@ main {
 }
 
 /* =====================
-   ARTICLE (FOND BLANC PLEINE LARGEUR)
+   ARTICLE (fond blanc plein écran)
 ===================== */
 .article {
   display: none;
   background-color: white;
-  padding: 30px 5px; /* fond blanc avec 5px marge côté */
+  padding: 30px 5px; /* 5px marge côté */
   min-height: calc(100vh - 60px);
   width: 100%;
 }
@@ -139,19 +139,17 @@ main {
 }
 
 /* =====================
-   IMAGES ALIGNÉES AVEC TEXTE
+   IMAGE AU-DESSUS DU TEXTE, ALIGNÉE AU TEXTE
 ===================== */
-.article img {
-  display: block;
+.img-container {
+  max-width: 650px;          /* aligné avec le texte */
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 15px;
 }
 
-/* Pour aligner l'image avec le début des lignes de texte */
-.article img {
-  margin-left: calc((100% - 650px)/2);
-  margin-bottom: 15px;
+.img-container img {
+  display: block;
+  margin-bottom: 15px;       /* espace sous l’image */
 }
 
 /* =====================
@@ -172,4 +170,4 @@ main {
   margin-top: 30px;
   font-size: 12px;
   color: #555;
-   }
+}
