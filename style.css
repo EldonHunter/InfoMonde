@@ -1,11 +1,22 @@
-/* RESET GLOBAL */
+/* =====================
+   RESET GLOBAL
+===================== */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* IMAGES */
+/* =====================
+   BASE
+===================== */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #eceff1;
+  color: #222;
+}
+
+/* Images */
 img {
   width: 300px;
   height: auto;
@@ -14,28 +25,28 @@ img {
   border-radius: 4px;
 }
 
-/* BODY */
-body {
-  font-family: "Segoe UI", Arial, sans-serif;
-  background-color: #eceff1;
-  color: #222;
-}
-
-/* HEADER */
+/* =====================
+   HEADER
+===================== */
 header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
   background-color: #1a1a1a;
   color: white;
-  padding: 15px 20px;
+  padding: 0 20px;
   display: flex;
   align-items: center;
   gap: 15px;
+  z-index: 1000;
 }
 
 header h1 {
   font-size: 22px;
 }
 
-/* BOUTON MENU */
 .menu-btn {
   font-size: 22px;
   background: none;
@@ -44,24 +55,27 @@ header h1 {
   cursor: pointer;
 }
 
-/* LAYOUT */
+/* =====================
+   LAYOUT
+===================== */
 .container {
   display: flex;
-  min-height: calc(100vh - 60px);
 }
 
-/* SIDEBAR */
+/* =====================
+   SIDEBAR
+===================== */
 .sidebar {
-  width: 260px;
-  background-color: #263238;
-  color: white;
-  padding: 20px;
   position: fixed;
   top: 60px;
   left: -260px;
-  height: 100%;
+  width: 260px;
+  height: calc(100vh - 60px);
+  background-color: #263238;
+  color: white;
+  padding: 20px;
   transition: left 0.3s ease;
-  box-shadow: 4px 0 10px rgba(0,0,0,0.3);
+  z-index: 900;
 }
 
 .sidebar.active {
@@ -89,32 +103,36 @@ header h1 {
   background-color: #455a64;
 }
 
-/* CONTENU PRINCIPAL */
+/* =====================
+   CONTENU PRINCIPAL
+===================== */
 main {
-  flex: 1;
-  padding: 25px;
-}
-
-/* ARTICLES */
-.article {
-  display: none;
-  background-color: white;
-  padding: 20px;
-  border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-top: 60px;
   width: 100%;
 }
 
+/* =====================
+   ARTICLE (FOND BLANC PLEIN ÉCRAN)
+===================== */
+.article {
+  display: none;
+  background-color: white;
+  padding: 30px;
+  min-height: calc(100vh - 60px);
+  width: 100%;
+}
 
 .article.active {
   display: block;
 }
 
 .article h2 {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
-/* ACTUALITÉS ACCUEIL */
+/* =====================
+   ACCUEIL / NEWS
+===================== */
 .news-block {
   margin-bottom: 25px;
 }
@@ -123,7 +141,9 @@ main {
   margin-bottom: 8px;
 }
 
-/* DISCLAIMER */
+/* =====================
+   DISCLAIMER
+===================== */
 .disclaimer {
   margin-top: 30px;
   font-size: 12px;
