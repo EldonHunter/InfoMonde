@@ -16,7 +16,9 @@ body {
   color: #222;
 }
 
-/* Images */
+/* =====================
+   IMAGES
+===================== */
 img {
   width: 300px;
   height: auto;
@@ -63,7 +65,7 @@ header h1 {
 }
 
 /* =====================
-   SIDEBAR
+   SIDEBAR (INCHANGÉE)
 ===================== */
 .sidebar {
   position: fixed;
@@ -112,19 +114,29 @@ main {
 }
 
 /* =====================
-   ARTICLE (FOND BLANC PLEIN ÉCRAN)
+   ARTICLE (FOND BLANC PLEINE LARGEUR)
 ===================== */
 .article {
   display: none;
   background-color: white;
-  padding: 30px;
+  padding: 30px 5px; /* 5px sur les côtés */
   min-height: calc(100vh - 60px);
   width: 100%;
 }
 
+/* TEXTE LIMITÉ À 650PX */
+.article p,
+.article h2,
+.article h3 {
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .article p {
-    max-width: 700px;
-    margin: 0 auto 15px auto;
+  margin-bottom: 15px;
+  line-height: 1.7;
+  text-align: justify;
 }
 
 .article.active {
