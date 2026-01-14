@@ -17,17 +17,6 @@ body {
 }
 
 /* =====================
-   IMAGES
-===================== */
-img {
-  width: 300px;
-  height: auto;
-  display: block;
-  margin-bottom: 15px;
-  border-radius: 4px;
-}
-
-/* =====================
    HEADER
 ===================== */
 header {
@@ -119,12 +108,18 @@ main {
 .article {
   display: none;
   background-color: white;
-  padding: 30px 5px; /* 5px sur les côtés */
+  padding: 30px 5px; /* fond blanc avec 5px marge côté */
   min-height: calc(100vh - 60px);
   width: 100%;
 }
 
-/* TEXTE LIMITÉ À 650PX */
+.article.active {
+  display: block;
+}
+
+/* =====================
+   TEXTE LIMITÉ À 650PX
+===================== */
 .article p,
 .article h2,
 .article h3 {
@@ -139,11 +134,23 @@ main {
   text-align: justify;
 }
 
-.article.active {
-  display: block;
+.article h2 {
+  margin-bottom: 15px;
 }
 
-.article h2 {
+/* =====================
+   IMAGES ALIGNÉES AVEC TEXTE
+===================== */
+.article img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+}
+
+/* Pour aligner l'image avec le début des lignes de texte */
+.article img {
+  margin-left: calc((100% - 650px)/2);
   margin-bottom: 15px;
 }
 
@@ -165,4 +172,4 @@ main {
   margin-top: 30px;
   font-size: 12px;
   color: #555;
-}
+   }
